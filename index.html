@@ -2,62 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>3D Rotating Banner</title>
+  <title>Home Page</title>
   <style>
     body {
-      background: #222;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      background-image: url('gallaxy.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
       margin: 0;
+      padding: 0;
     }
-    .banner-container {
-      perspective: 1000px;
-      width: 200px;
-      height: 200px;
-      position: relative;
+
+    .button-row {
+      display: flex;
+      flex-direction: column;    /* Arrange buttons vertically */
+      align-items: flex-start;   /* Align to the left */
+      gap: 30px;
+      margin-top:  80px;         /* Adjust as needed */
+      margin-left: 40px;         /* Space from the left edge */
     }
-    .banner {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      transform-style: preserve-3d;
-      animation: rotateY 8s linear infinite;
+
+    .my-button {
+      background-color: #563f92;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+      width: 180px;      /* Set your desired width */
+      height: 48px;      /* Optional: set a fixed height */
+      box-sizing: border-box; /* Ensures padding is included in width/height */
     }
-    .banner img {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      left: 40px;
-      top: 25px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+
+    .my-button:hover {
+      background-color: #0755d3;
     }
-    /* Position each image around the Y axis */
-    .banner img:nth-child(1) { transform: rotateY(0deg) translateZ(350px);}
-    .banner img:nth-child(2) { transform: rotateY(60deg) translateZ(350px);}
-    .banner img:nth-child(3) { transform: rotateY(120deg) translateZ(350px);}
-    .banner img:nth-child(4) { transform: rotateY(180deg) translateZ(350px);}
-    .banner img:nth-child(5) { transform: rotateY(240deg) translateZ(350px);}
-    .banner img:nth-child(6) { transform: rotateY(300deg) translateZ(350px);}
-    @keyframes rotateY {
-      from { transform: rotateY(0deg);}
-      to { transform: rotateY(360deg);}
+
+    h1 {
+      text-align: center;
+      color: rgb(248, 3, 3);
+      font-size: 4rem;
+    }
+
+    .bottom-right-img {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
 <body>
-  <div class="banner-container">
-    <div class="banner">
-      <img src="1.jpg" alt="1">
-      <img src="2.jpg" alt="2">
-      <img src="3.jpg" alt="3">
-      <img src="4.jpg" alt="4">
-      <img src="5.jpg" alt="5">
-      <img src="6.jpg" alt="6">
-    </div>
+  <h1>Welcome Alien!</h1>
+
+  <div class="button-row">
+    <a href="a.html"><button class="my-button">Intro</button></a>
+    <a href="hist.pdf" target="_blank"><button class="my-button">History</button></a>
+    <button class="my-button" onclick="playMusic()">music</button>
+    <button class="my-button" onclick="togglePlayPause()">pause</button>
+    <button class="my-button" onclick="resumeMusic()">resume</button>
+    <a href="about.html"><button class="my-button">picture</button></a> <!-- New button -->
   </div>
+
+  <audio id="music-player" src="a.webm"></audio> <!-- Replace 'song.mp3' with your file -->
+
+    <script>
+    const music = document.getElementById("music-player");
+
+    function togglePlayPause() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    function resumeMusic() {
+      if (music.paused) {
+        music.play();
+      }
+    }
+       function playMusic() {
+      const music = document.getElementById("music-player");
+      music.play();
+    }
+  </script>
+
+  <img src="13.png" alt="My Picture" class="bottom-right-img">
 </body>
 </html>
