@@ -18,7 +18,7 @@
       perspective: 1000px;
       width: 200px;
       height: 300px;
-      position: relative;
+      position: absolute;
     }
     .banner {
       width: 100%;
@@ -39,7 +39,6 @@
     }
     /* Position each image around the Y axis */
     .banner img:nth-child(1) { transform: rotateY(0deg) translateZ(350px);}
-   
     .banner img:nth-child(2) { transform: rotateY(60deg) translateZ(350px);}
     .banner img:nth-child(3) { transform: rotateY(120deg) translateZ(350px);}
     .banner img:nth-child(4) { transform: rotateY(180deg) translateZ(350px);}
@@ -50,15 +49,60 @@
       to { transform: rotateY(360deg);}
     }
 
-     h1 {
+    h1 {
       margin-bottom: 400px;
       color: #fff;
       text-align: center;
       width: 100%;
     }
+    body {
+      background-image: url('gallaxy0.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .button-row {
+      display: fixed;
+      flex-direction: row-reverse;    /* Arrange buttons vertically */
+      gap: 30px;
+      margin-top:  700px;         /* Adjust as needed */
+      margin-left: 1000px;         /* Space from the left edge */
+    }
+     .my-button {
+      background-color: #563f92;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+      width: 180px;      /* Set your desired width */
+      height: 48px;      /* Optional: set a fixed height */
+      box-sizing: border-box; /* Ensures padding is included in width/height */
+    }
+
+    .my-button:hover {
+      background-color: #0755d3;
+    }
+     .bottom-left-img {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 <body>
+  <div class="button-row">
+    <a href="index.html"><button class="my-button">Home</button></a>
+  </div>
  
   <div class="banner-container">
     <div class="banner">
