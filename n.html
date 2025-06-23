@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12 Thumbnails</title>
+  <style>
+    body {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular';
+      background: hwb(236 40% 2%);
+      padding: 100px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+    }
+
+    .thumbnail {
+     
+      border: 1px solid hsl(181, 98%, 50%);
+      border-radius: 100px;
+      overflow: hidden;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .thumbnail:hover {
+      transform: scale(1.03);
+    }
+
+    .thumbnail img {
+      width: 200%;
+      height: auto;
+      display: block;
+    }
+    h1 {
+      text-align: center;
+      color: #fa0404;
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align: center"> My Gallery</h1>
+  <div class="grid-container">
+    
+    <div class="thumbnail">
+      <img src="1.jpg" alt="Thumbnail 1">
+    </div>
+    <div class="thumbnail">
+      <img src="2.jpg" alt="Thumbnail 2">
+    </div>
+    <div class="thumbnail">
+      <img src="3.jpg" alt="Thumbnail 3">
+    </div>
+    <div class="thumbnail">
+      <img src="4.jpg" alt="Thumbnail 4">
+    </div>
+    <div class="thumbnail">
+      <img src="5.jpg" alt="Thumbnail 5">
+    </div>
+    <div class="thumbnail">
+      <img src="6.jpg" alt="Thumbnail 6">
+    </div>
+    <div class="thumbnail">
+      <img src="7.jpg" alt="Thumbnail 7">
+    </div>
+    <div class="thumbnail">
+      <img src="8.jpg" alt="Thumbnail 8">
+    </div>
+    <div class="thumbnail">
+      <img src="9.jpg" alt="Thumbnail 9">
+    </div>
+    <div class="thumbnail">
+      <img src="10.jpg" alt="Thumbnail 10">
+    </div>
+    <div class="thumbnail">
+      <img src="11.jpg" alt="Thumbnail 11">
+    </div>
+    <div class="thumbnail">
+      <img src="12.jpg" alt="Thumbnail 12">
+    </div>
+    <div class="thumbnail">
+      <img src="13.jpg" alt="Thumbnail 13">
+    </div>
+    <div class="thumbnail">
+      <img src="14.jpg" alt="Thumbnail 14">
+    </div>
+    <div class="thumbnail">
+      <img src="15.jpg" alt="Thumbnail 15">
+    </div>
+    <div class="thumbnail">
+      <img src="16.jpg" alt="Thumbnail 16">
+    </div>
+    <div class="thumbnail">
+      <img src="17.jpg" alt="Thumbnail 17">
+    </div>
+    <div class="thumbnail">
+      <img src="18.jpg" alt="Thumbnail 18">
+    </div>
+     <div class="thumbnail">
+      <img src="19.jpg" alt="Thumbnail 19">
+    </div>
+    <div class="thumbnail">
+      <img src="20.jpg" alt="Thumbnail 20">
+    </div>
+      <div class="thumbnail">
+      <img src="21.jpg" alt="Thumbnail 21">
+    </div>
+    <div class="thumbnail">
+      <img src="22.jpg" alt="Thumbnail 22">
+    </div>
+     <div class="thumbnail">
+      <img src="23.jpg" alt="Thumbnail 23">
+    </div>
+    <div class="thumbnail">
+      <img src="24.jpg" alt="Thumbnail 24">
+    </div>
+  </div>
+  <!-- Optionally, you can use object-fit to ensure images cover the thumbnail area -->
+  <style>
+    .thumbnail img {
+      width: 120%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
+</body>
+</html>
