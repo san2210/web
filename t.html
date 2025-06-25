@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Grid Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family:Haettenschweiler, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+      background: #f4f4f4;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .grid-item {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 5px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>My Image Grid</h1>
+
+  <div class="grid-container">
+    <div class="grid-item"><img src="ea.jpg" alt="Image 1"></div>
+    <div class="grid-item"><img src="eb.jpg" alt="Image 2"></div>
+    <div class="grid-item"><img src="ec.jpg" alt="Image 3"></div>
+    <div class="grid-item"><img src="ed.jpg" alt="Image 4"></div>
+    <div class="grid-item"><img src="ee.jpg" alt="Image 5"></div>
+    <div class="grid-item"><img src="ef.jpg" alt="Image 6"></div>
+    <div class="grid-item"><img src="eg.jpg" alt="Image 7"></div>
+    <div class="grid-item"><img src="eh.jpg" alt="Image 8"></div>
+    <div class="grid-item"><img src="ei.jpg" alt="Image 9"></div>
+    <div class="grid-item"><img src="ej.jpg" alt="Image 10"></div>
+    <div class="grid-item"><img src="ek.jpg" alt="Image 11"></div>
+    <div class="grid-item"><img src="el.jpg" alt="Image 12"></div>
+    <div class="grid-item"><img src="em.jpg" alt="Image 13"></div>
+    <div class="grid-item"><img src="eo.jpg" alt="Image 14"></div>
+    <div class="grid-item"><img src="ep.jpg" alt="Image 15"></div>
+  </div>
+
+</body>
+
+</html>
