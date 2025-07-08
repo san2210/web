@@ -1,7 +1,6 @@
 /* styles.css */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
   background: linear-gradient(45deg, #4407d3, #ff0303);
   display: flex;
   justify-content: center;

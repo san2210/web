@@ -8,7 +8,7 @@
 
   <style>
     body {
-      background-image: url('eye9.png');
+      background-image: url('eye10.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -17,17 +17,32 @@
       padding: 0;
     }
 
-    .button-row {
-      display: flex;
-      flex-direction: column;    /* Arrange buttons vertically */
-      align-items: flex-start;   /* Align to the left */
-      gap: 30px;
-      margin-top:  20px;         /* Adjust as needed */
-      margin-left: 40px;         /* Space from the left edge */
+    .main-row {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start; /* Aligns first buttons at the same level */
+     width: 100%;
+     position: relative;
+     margin-top: 150px; 
+    }
+
+   .button-row {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    }
+
+   .left-buttons {
+    margin-left: 40px;
+    }
+
+   .right-buttons {
+    margin-right: 40px;
+    align-items: flex-end;
     }
 
     .my-button {
-      background-color: #563f92;
+      background-color: #f70438;
       color: white;
       padding: 12px 24px;
       border: none;
@@ -38,52 +53,88 @@
       width: 180px;      /* Set your desired width */
       height: 48px;      /* Optional: set a fixed height */
       box-sizing: border-box; /* Ensures padding is included in width/height */
+      font-family: 'MyFont', sans-serif; /* Change to your preferred font */
+
     }
 
     .my-button:hover {
       background-color: #0755d3;
     }
+    
+    @font-face {
+      font-family: 'MyFont';
+      src: url('fonts/MyFont.ttf') format('truetype');
+    }
 
     h1 {
       text-align: center;
-      color: #ffea00;
-      font-size: 4rem;
+      color: #ff5100;
+      font-size: 8rem;
+      font-family: 'MyFont', sans-serif;
+      margin-top: 60px; 
+ 
     }
 
+
     .bottom-right-img {
-      position: fixed;
-      right: 20px;
+      position: absolute;
       bottom: 20px;
-      width: 300px;
+      right : 20px;
+      width: 200px;
       height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 40px;
+      box-shadow: 0 4px 8px rgba(8, 8, 8, 0.1);
     }
-    
-  </style>
+
+   </style>
 
 </head>
 <body>
   <h1>Welcome Alien!</h1>
-
-  <div class="button-row">
+  <div class="main-row">
+   <div class="button-row left-buttons">
     <a href="a.html"><button class="my-button">Intro</button></a>
     <!--<a href="hist.pdf"></a><button class="my-button">History</button></a>-->
     <button class="my-button" onclick="playMusic()">music</button>
     <button class="my-button" onclick="togglePlayPause()">pause</button>
     <button class="my-button" onclick="resumeMusic()">resume</button>
     <a href="about.html"><button class="my-button">picture</button></a> 
-    <a href="new.html"><button class="my-button">good luck</button></a> 
+    </div>
+    <div class="button-row right-buttons">
     <a href="n.html"><button class="my-button">my gallery</button></a> 
     <a href="t.html"><button class="my-button">my image grid</button></a> 
     <a href="https://youtu.be/Qb0989DnoAM" target="_blank">
-    <button class="my-button">YouTube</button>
+      <button class="my-button">YouTube</button>
     </a>
+    <a href="new.html"><button class="my-button">good luck</button></a> 
+    </div>
+  </div>
+  
+  
+  <audio id="music-player"></audio> 
 
-  <audio id="music-player" src="เรือ.mp3"></audio> 
-
-    <script>
+  <script>
+    // List of song file paths
+    const songs = [
+      "blue.mp3",
+      "tear.mp3",
+      "เรือ.mp3"
+      // Add more song file names here
+    ];
+    let currentSongIndex = 2;
     const music = document.getElementById("music-player");
+
+    // Play the current song
+    function playCurrentSong() {
+      music.src = songs[currentSongIndex];
+      music.play();
+    }
+
+    function playMusic() {
+      // Move to next song in the list
+      currentSongIndex = (currentSongIndex + 1) % songs.length;
+      playCurrentSong();
+    }
 
     function togglePlayPause() {
       if (music.paused) {
@@ -98,10 +149,9 @@
         music.play();
       }
     }
-       function playMusic() {
-      const music = document.getElementById("music-player");
-      music.play();
-    }
+
+    // Optional: Play the first song on page load
+    // playCurrentSong();
   </script>
 
   <img src="13.png" alt="My Picture" class="bottom-right-img">

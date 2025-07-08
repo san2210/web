@@ -6,7 +6,8 @@
   <title>12 Thumbnails</title>
   <style>
     body {
-      font-family: 'Lucida Sans', 'Lucida Sans Regular';
+      font-family: 'MyFont', sans-serif; /* Change to your preferred font */
+      src: url('fonts/MyFont.ttf') format('truetype');
       background: hwb(236 40% 2%);
       padding: 100px;
     }
@@ -14,7 +15,7 @@
     .grid-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 10px;
+      gap: 20px;
     }
 
     .thumbnail {
@@ -22,7 +23,7 @@
       border: 1px solid hsl(181, 98%, 50%);
       border-radius: 100px;
       overflow: hidden;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5x 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.2s;
     }
 
@@ -35,6 +36,12 @@
       height: auto;
       display: block;
     }
+
+     @font-face {
+      font-family: 'MyFont';
+      src: url('fonts/MyFont.ttf') format('truetype');
+    }
+    
     h1 {
       text-align: center;
       color: #fa0404;
@@ -120,12 +127,49 @@
     <div class="thumbnail">
       <img src="24.jpg" alt="Thumbnail 24">
     </div>
-  </div>
+    <div class="thumbnail">
+      <img src="a.jpg" alt="Thumbnail a">
+    </div>
+      <div class="thumbnail">
+      <img src="b.jpg" alt="Thumbnail b">
+    </div>
+    <div class="thumbnail">
+      <img src="bb.jpg" alt="Thumbnail c">
+    </div>
+     <div class="thumbnail">
+      <img src="bc.jpg" alt="Thumbnail d">
+    </div>
+    <div class="thumbnail">
+      <img src="e.jpg" alt="Thumbnail e">
+    </div>
+    <div class="thumbnail">
+      <img src="bf.jpg" alt="Thumbnail f">
+    </div>
+      <div class="thumbnail">
+      <img src="bg.jpg" alt="Thumbnail g">
+    </div>
+    <div class="thumbnail">
+      <img src="h.jpg" alt="Thumbnail h">
+    </div>
+    <div class="thumbnail">
+      <img src="bn.jpg" alt="Thumbnail i">
+    </div>
+    <div class="thumbnail">
+      <img src="bo.jpg" alt="Thumbnail j">
+    </div>
+      <div class="thumbnail">
+      <img src="bp.jpg" alt="Thumbnail k">
+    </div>
+    <div class="thumbnail">
+      <img src="bq.jpg" alt="Thumbnail l">
+    </div>
+
+  
   <!-- Optionally, you can use object-fit to ensure images cover the thumbnail area -->
   <style>
     .thumbnail img {
-      width: 120%;
-      height: 200px;
+      width: 100%;
+      height: 220px;
       object-fit: cover;
       display: block;
     }
