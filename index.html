@@ -45,8 +45,8 @@
       background-color: #f70438;
       color: white;
       padding: 12px 24px;
-      border: none;
-      border-radius: 4px;
+      border: 10px;
+      border-radius: 10px;
       cursor: pointer;
       font-size: 16px;
       transition: background 0.3s;
@@ -82,7 +82,7 @@
       right : 20px;
       width: 200px;
       height: auto;
-      border-radius: 40px;
+      border-radius: 120px;
       box-shadow: 0 4px 8px rgba(8, 8, 8, 0.1);
     }
 
@@ -93,8 +93,7 @@
   <h1>Eye in the Sky!</h1>
   <div class="main-row">
    <div class="button-row left-buttons">
-    <a href="a.html"><button class="my-button">Intro</button></a>
-    <!--<a href="hist.pdf"></a><button class="my-button">History</button></a>-->
+    <button class="my-button" onclick="window.open('map.png', '_blank')">MAP</button>
     <button class="my-button" onclick="playMusic()">music</button>
     <button class="my-button" onclick="togglePlayPause()">pause</button>
     <button class="my-button" onclick="resumeMusic()">resume</button>
@@ -148,6 +147,10 @@
       if (music.paused) {
         music.play();
       }
+    }
+       
+    function showImage() {
+      document.getElementById('myImage').style.display = 'block';
     }
 
     // Optional: Play the first song on page load
