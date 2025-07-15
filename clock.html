@@ -17,9 +17,9 @@
     }
 
     .clock {
-      width: 600px;
-      height: 600px;
-      border: 20px solid #e1fa02;
+      width: 300px;
+      height: 300px;
+      border: 8px solid #e1fa02;
       border-radius: 50%;
       position: relative;
       background: #0143f8;
@@ -47,33 +47,33 @@
     }
 
     .hour {
-      width: 12px;
-      height: 120px;
+      width: 6px;
+      height: 70px;
       background: #f8fc02;
       z-index: 3;
     }
 
     .minute {
-      width: 8px;
-      height: 180px;
+      width: 4px;
+      height: 100px;
       background: #64f802;
       z-index: 2;
     }
 
     .second {
-      width: 4px;
-      height: 240px;
-      background: #ff0202;
+      width: 2px;
+      height: 120px;
+      background: #ff3c3c;
       z-index: 1;
     }
 
     .number {
       position: absolute;
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
       text-align: center;
-      line-height: 80 px;
-      font-size: 100 px; 
+      line-height: 30px;
+      font-size: 16px;
       transform: translate(-50%, -50%);
     }
   </style>
@@ -94,10 +94,10 @@
         number.textContent = i;
 
         const angle = (i - 3) * 30 * (Math.PI / 180); // Shift so 12 is on top
-        const radius = 270; // Distance from center
+        const radius = 130; // Distance from center
 
-        const x = 300 + radius * Math.cos(angle); // centerX = 150
-        const y = 300 + radius * Math.sin(angle); // centerY = 150
+        const x = 150 + radius * Math.cos(angle); // centerX = 150
+        const y = 150 + radius * Math.sin(angle); // centerY = 150
 
         number.style.left = `${x}px`;
         number.style.top = `${y}px`;
