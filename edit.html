@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Resizer with Filters and Text</title>
+  <style>
+    body { font-family: sans-serif; text-align: center;background: #907ef8; margin-top: 30px; }
+    background: #907ef8;
+    img { max-width: 100%; margin-top: 10px; }
+    canvas { border: 1px solid #ccc; margin-top: 10px; }
+    label, input { margin: 5px; }
+  </style>
+</head>
+<body>
+
+  <h2>Upload, Resize, Filter, and Add Text</h2>
+
+  <input type="file" id="upload" accept="image/*"><br><br>
+
+  Width: <input type="number" id="width" placeholder="Width" />
+  Height: <input type="number" id="height" placeholder="Height" /><br><br>
+
+  <label><input type="checkbox" id="grayscale"> Grayscale</label>
+  <label><input type="checkbox" id="sepia"> Sepia</label>
+  <label>Contrast: <input type="range" id="contrast" min="50" max="200" value="100"></label><br><br>
+
+  <button id="resize">Resize + Apply Filter</button><br><br>
+
+  <!-- Text Drawing Tools -->
+  <hr>
+  <h3>Add Text to Image</h3>
+  <input type="text" id="textInput" placeholder="Write something..." />
+  <input type="color" id="textColor" value="#ff0000" />
+  <label>Font Size: <input type="number" id="fontSize" value="24" min="10" max="100" /></label>
+  <button id="enableTextMode">Enable Text Drawing</button><br><br>
+
+  <canvas id="canvas"></canvas><br>
+  <a id="download" download="edited-image.png">Download Edited Image</a><br><br>
+  <img id="preview" style="display:none;" />
+
+  <script>
+    const upload = document.getElementById('upload');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const preview = document.getElementById('preview');
+    const widthInput = document.getElementById('width');
+    const heightInput = document.getElementById('height');
+    const grayscale = document.getElementById('grayscale');
+    const sepia = document.getElementById('sepia');
+    const contrast = document.getElementById('contrast');
+    const resizeBtn = document.getElementById('resize');
+    const downloadLink = document.getElementById('download');
+
+    // Text controls
+    const textInput = document.getElementById('textInput');
+    const textColor = document.getElementById('textColor');
+    const fontSize = document.getElementById('fontSize');
+    const enableTextMode = document.getElementById('enableTextMode');
+
+    let originalImage = new Image();
+    let isTextMode = false;
+
+    upload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        originalImage.src = event.target.result;
+        preview.src = event.target.result;
+
+        originalImage.onload = function () {
+          widthInput.value = originalImage.width;
+          heightInput.value = originalImage.height;
+
+          canvas.width = originalImage.width;
+          canvas.height = originalImage.height;
+          ctx.drawImage(originalImage, 0, 0);
+        };
+      };
+
+      if (file) reader.readAsDataURL(file);
+    });
+
+    resizeBtn.addEventListener('click', () => {
+      const width = parseInt(widthInput.value);
+      const height = parseInt(heightInput.value);
+      if (!width || !height) {
+        alert("Please enter both width and height.");
+        return;
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+
+      // Build filter string
+      let filterStr = `contrast(${contrast.value}%) `;
+      if (grayscale.checked) filterStr += 'grayscale(100%) ';
+      if (sepia.checked) filterStr += 'sepia(100%)';
+
+      ctx.filter = filterStr.trim();
+      ctx.drawImage(originalImage, 0, 0, width, height);
+      ctx.filter = "none";  // reset for future drawing
+
+      const resultDataUrl = canvas.toDataURL("image/png");
+      preview.src = resultDataUrl;
+      downloadLink.href = resultDataUrl;
+    });
+
+    enableTextMode.addEventListener('click', () => {
+      isTextMode = !isTextMode;
+      enableTextMode.textContent = isTextMode ? "Text Drawing: ON" : "Enable Text Drawing";
+    });
+
+    canvas.addEventListener('click', (e) => {
+      if (!isTextMode) return;
+
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      ctx.fillStyle = textColor.value;
+      ctx.font = `${fontSize.value}px sans-serif`;
+      ctx.fillText(textInput.value, x, y);
+
+      const resultDataUrl = canvas.toDataURL("image/png");
+      downloadLink.href = resultDataUrl;
+    });
+  </script>
+
+</body>
+</html>
+
